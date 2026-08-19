@@ -1,0 +1,2 @@
+- Headers are just case-insensitive [key-value pairs](https://en.wikipedia.org/wiki/Name%E2%80%93value_pair) that pass additional [metadata](https://en.wikipedia.org/wiki/Metadata) about the request or response.
+- Headers are useful for several reasons from design to security, but most often headers are used for metadata about the request or response itself.
