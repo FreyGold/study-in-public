@@ -83,13 +83,13 @@ Do this before Clients and Servers — you can't build either well without knowi
 
 ### C. HTTP Clients (Boot.dev "Learn HTTP Clients in Go," 55 lessons / 14h)
 
-- [ ] Make GET/POST requests with headers and query params
-- [ ] Set timeouts and cancel via context on `http.Client`
-- [ ] Retry logic with exponential backoff for a flaky endpoint (simulate flakiness yourself)
-- [ ] **JSON**
-    - [ ] Encode/decode structs, handle unknown/extra fields gracefully
-    - [ ] Custom `MarshalJSON`/`UnmarshalJSON` for one type with non-trivial serialization (e.g. a custom date format)
-- [ ] Connection pooling — explain what `http.Transport` controls and why creating a new `http.Client` per request is a common performance mistake
+- [x] Make GET/POST requests with headers and query params
+- [x] Set timeouts and cancel via context on `http.Client`
+- [x] Retry logic with exponential backoff for a flaky endpoint (simulate flakiness yourself)
+- [x] **JSON**
+    - [x] Encode/decode structs, handle unknown/extra fields gracefully
+    - [x] Custom `MarshalJSON`/`UnmarshalJSON` for one type with non-trivial serialization (e.g. a custom date format)
+- [x] Connection pooling — explain what `http.Transport` controls and why creating a new `http.Client` per request is a common performance mistake
 - [ ] Optional reinforcement project: **Build a Pokedex in Go** (13 lessons / 24h, guided project) — a second rep on client-side HTTP, skip if you're confident already
 - [ ] Optional, cheap reinforcement: **Build a Web Scraper in Go** (13 lessons / 6h, guided project) — low time cost, decent if you have a spare afternoon
 
