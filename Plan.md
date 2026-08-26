@@ -73,7 +73,7 @@ Boot.dev course: https://www.boot.dev/courses/learn-golang
 
 Do this before Clients and Servers — you can't build either well without knowing what's actually on the wire. This is a full 16-hour course in its own right, not a footnote.
 
-- [ ] Parse a raw HTTP request by hand (start line, headers, body) — don't use `net/http` for this exercise, work from the raw bytes
+- [x] Parse a raw HTTP request by hand (start line, headers, body) — don't use `net/http` for this exercise, work from the raw bytes
 - [ ] Parse a raw HTTP response by hand the same way
 - [ ] Status code categories (1xx–5xx) — write down what each category means without looking it up, then check yourself against specifics (200 vs 201 vs 204, 301 vs 302 vs 307, 401 vs 403, 429, 500 vs 502 vs 503 vs 504)
 - [ ] Headers that actually matter in practice: `Content-Type`, `Content-Length`, `Cache-Control`, `ETag`, `Authorization` — explain what each controls

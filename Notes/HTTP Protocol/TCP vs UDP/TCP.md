@@ -1,3 +1,6 @@
+> [!example] Visual Architecture Diagram
+> **Excalidraw Overview:** [[Excalidrawings/HTTP Protocol/TCP vs UDP/TCP.excalidraw|TCP Architecture]]
+
 ## TCP Setup & Patterns
 
 > [!summary] Key Takeaway

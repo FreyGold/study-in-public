@@ -9,6 +9,10 @@ created: "2026-08-22"
 summary: "Build a streaming HTTP request parser in Go that handles partial reads using a state machine and dynamic buffer management."
 ---
 
+
+> [!example] Visual Architecture Diagram
+> **Excalidraw Overview:** [[Excalidrawings/Notes/HTTP Protocol/HTTP 1.1/HTTP Request Stream Parsing.excalidraw|HTTP Request Stream Parsing Architecture]]
+
 > [!summary] Key Takeaways
 > **Core Insight:** TCP delivers bytes in arbitrary chunks, not complete messages—your parser must maintain state and buffer data until it finds the `\r\n` delimiter signaling a complete request line.
 

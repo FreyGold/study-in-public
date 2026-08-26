@@ -15,28 +15,6 @@
   "history": {
     "undo": [
       {
-        "id": "1787494309121",
-        "timestamp": 1787494309121,
-        "mode": "excalidraw",
-        "description": "Excalidraw: TCP",
-        "files": [
-          {
-            "path": "Excalidrawings/HTTP Protocol/TCP vs UDP/TCP.excalidraw.md",
-            "isNewFile": true,
-            "newContent": ""
-          },
-          {
-            "path": "HTTP Protocol/TCP vs UDP/TCP.md",
-            "isNewFile": false,
-            "previousContent": "## TCP Setup & Patterns\n\n> [!summary] Key Takeaway\n> **Client/Server Pairing:** Use `net.Dial` (client) with `net.Listen` (server) for standard apps; drop to `net.DialTCP` only when you need explicit control over local/remote `*net.TCPAddr` (e.g., binding specific source ports/IPs).\n\n### Core Functions\n\n| Role | Function | Signature | Primary Use Case |\n|------|----------|-----------|------------------|\n| **Client** | `net.Dial` | `Dial(network, address string)` | **Default choice.** High-level TCP handshake; `network` = `\"tcp\"`, `\"tcp4\"`, `\"tcp6\"`. |\n| **Server** | `net.Listen` | `Listen(network, address string)` | **Standard listener.** Binds to `\":port\"` or `\"host:port\"`. Returns `net.Listener`. |\n| **Low-level Client** | `net.DialTCP` | `DialTCP(network, laddr, raddr *net.TCPAddr)` | **Explicit address control.** Requires `*net.TCPAddr` for both local (`laddr`) and remote (`raddr`). Mirrors `DialUDP` pattern. |\n\n### When to Use Which\n\n- **`net.Dial` + `net.Listen`** (99% of cases)\n    - **Used together:** `Dial` connects to the `Listener`'s address.\n    - **Why:** Automatic DNS resolution, happy eyeballs (IPv4/IPv6 fallback), OS-managed ephemeral ports.\n- **`net.DialTCP` + `net.Listen`**\n    - **Used together:** `DialTCP` connects to a standard `Listener`.\n    - **When:** You must bind the **client** to a specific source IP/port (`laddr`)—e.g., multi-homed hosts, firewall rules requiring fixed source ports, or testing.\n- **`net.DialTCP` + `net.ListenTCP`** (Symmetrical Low-level)\n    - **Used together:** Both sides use `*net.TCPAddr`.\n    - **When:** Building custom proxy/load-balancer logic where both ends need explicit address awareness before handshake.\n\n### Quick Decision\n\n```mermaid\nflowchart TD\n    start[\"Need TCP Connection?\"] --> std{\"Standard Client/Server?\"}\n    std -- Yes --> dial[\"net.Dial / net.Listen\"]\n    std -- No --> explicit{\"Need fixed Source IP/Port<br>or raw *TCPAddr control?\"}\n    explicit -- Yes --> dialtcp[\"net.DialTCP / net.ListenTCP\"]\n    explicit -- No --> dial\n```\n",
-            "newContent": "> [!example] Visual Architecture Diagram\n> **Excalidraw Overview:** [[Excalidrawings/HTTP Protocol/TCP vs UDP/TCP.excalidraw|TCP Architecture]]\n\n## TCP Setup & Patterns\n\n> [!summary] Key Takeaway\n> **Client/Server Pairing:** Use `net.Dial` (client) with `net.Listen` (server) for standard apps; drop to `net.DialTCP` only when you need explicit control over local/remote `*net.TCPAddr` (e.g., binding specific source ports/IPs).\n\n### Core Functions\n\n| Role | Function | Signature | Primary Use Case |\n|------|----------|-----------|------------------|\n| **Client** | `net.Dial` | `Dial(network, address string)` | **Default choice.** High-level TCP handshake; `network` = `\"tcp\"`, `\"tcp4\"`, `\"tcp6\"`. |\n| **Server** | `net.Listen` | `Listen(network, address string)` | **Standard listener.** Binds to `\":port\"` or `\"host:port\"`. Returns `net.Listener`. |\n| **Low-level Client** | `net.DialTCP` | `DialTCP(network, laddr, raddr *net.TCPAddr)` | **Explicit address control.** Requires `*net.TCPAddr` for both local (`laddr`) and remote (`raddr`). Mirrors `DialUDP` pattern. |\n\n### When to Use Which\n\n- **`net.Dial` + `net.Listen`** (99% of cases)\n    - **Used together:** `Dial` connects to the `Listener`'s address.\n    - **Why:** Automatic DNS resolution, happy eyeballs (IPv4/IPv6 fallback), OS-managed ephemeral ports.\n- **`net.DialTCP` + `net.Listen`**\n    - **Used together:** `DialTCP` connects to a standard `Listener`.\n    - **When:** You must bind the **client** to a specific source IP/port (`laddr`)—e.g., multi-homed hosts, firewall rules requiring fixed source ports, or testing.\n- **`net.DialTCP` + `net.ListenTCP`** (Symmetrical Low-level)\n    - **Used together:** Both sides use `*net.TCPAddr`.\n    - **When:** Building custom proxy/load-balancer logic where both ends need explicit address awareness before handshake.\n\n### Quick Decision\n\n```mermaid\nflowchart TD\n    start[\"Need TCP Connection?\"] --> std{\"Standard Client/Server?\"}\n    std -- Yes --> dial[\"net.Dial / net.Listen\"]\n    std -- No --> explicit{\"Need fixed Source IP/Port<br>or raw *TCPAddr control?\"}\n    explicit -- Yes --> dialtcp[\"net.DialTCP / net.ListenTCP\"]\n    explicit -- No --> dial\n```\n"
-          }
-        ],
-        "foldersCreated": [
-          "Excalidrawings/HTTP Protocol/TCP vs UDP"
-        ]
-      },
-      {
         "id": "1787494846398",
         "timestamp": 1787494846398,
         "mode": "smart",
@@ -81,6 +59,20 @@
           "Excalidrawings/Notes/HTTP Protocol",
           "Excalidrawings/Notes/HTTP Protocol/HTTP 1.1"
         ]
+      },
+      {
+        "id": "1787561752150",
+        "timestamp": 1787561752150,
+        "mode": "excalidraw",
+        "description": "Excalidraw: HTTP Request Stream Parsing",
+        "files": [
+          {
+            "path": "Excalidrawings/Notes/HTTP Protocol/HTTP 1.1/HTTP Request Stream Parsing.excalidraw.md",
+            "isNewFile": true,
+            "newContent": ""
+          }
+        ],
+        "foldersCreated": []
       }
     ],
     "redo": [],

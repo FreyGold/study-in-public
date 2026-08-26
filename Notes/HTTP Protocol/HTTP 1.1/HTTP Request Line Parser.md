@@ -9,6 +9,9 @@ created: "2026-08-22"
 summary: "A minimal Go parser that reads an HTTP/1.1 request line from an `io.Reader`, validating method casing, version, and structure before returning a structured `Request` object."
 ---
 
+> [!example] Visual Mind Map
+> **Excalidraw Overview:** [[Excalidrawings/HTTP Protocol/HTTP 1.1/HTTP Request Line Parser.excalidraw|HTTP Request Line Parser Diagram]]
+
 > [!summary] Key Takeaways
 > **Core Insight:** This parser implements a strict, single-pass extraction of the HTTP Request Line (`METHOD TARGET HTTP/1.1`), enforcing uppercase methods and HTTP/1.1 compliance before handing off to higher-layer logic.
 
