@@ -1,0 +1,6 @@
+[Unit]
+Description=Commit and push the Treasury daily snapshot
+
+[Service]
+Type=oneshot
+ExecStart="/home/frey/Fedora Backup/Treasury/.automation/daily-git-backup.sh"

@@ -1,0 +1,11 @@
+[Unit]
+Description=Check hourly for the Treasury daily Git backup
+
+[Timer]
+OnCalendar=*-*-* *:00:00
+Persistent=true
+AccuracySec=1min
+Unit=treasury-daily-git-backup.service
+
+[Install]
+WantedBy=timers.target
