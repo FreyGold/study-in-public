@@ -5,23 +5,23 @@ tags: [ea/drawing, excalidraw, diagram]
 ---
 ==Decompressed Markdown File==
 > [!info] Source note
-> [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md|Incremental Architecture — Small Store Evolution]]
+> [[Incremental Architecture — Small Store Evolution|Incremental Architecture — Small Store Evolution]]
 
 # Excalidraw Data
 
 ## Text Elements
 ## Element Links
-stage-0: [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md#Stage 0 — Single Server (App + DB)]]
+stage-0: [[Incremental Architecture — Small Store Evolution#Stage 0 — Single Server (App + DB)]]
 
-stage-1: [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md#Stage 1 — Load Balancer + Second App Server]]
+stage-1: [[Incremental Architecture — Small Store Evolution#Stage 1 — Load Balancer + Second App Server]]
 
-stage-2: [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md#Stage 2 — DB Replication (Primary + Read Replica)]]
+stage-2: [[Incremental Architecture — Small Store Evolution#Stage 2 — DB Replication (Primary + Read Replica)]]
 
-stage-3: [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md#Stage 3 — Cache (Cache-Aside) in Front of DB]]
+stage-3: [[Incremental Architecture — Small Store Evolution#Stage 3 — Cache (Cache-Aside) in Front of DB]]
 
-stage-4: [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md#Stage 4 — Queue for Async Work (Emails, Receipts)]]
+stage-4: [[Incremental Architecture — Small Store Evolution#Stage 4 — Queue for Async Work (Emails, Receipts)]]
 
-IMimrlHw: [[System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.md#Final Architecture (5 Components)]]
+IMimrlHw: [[Incremental Architecture — Small Store Evolution#Final Architecture (5 Components)]]
 
 %%
 ## Drawing

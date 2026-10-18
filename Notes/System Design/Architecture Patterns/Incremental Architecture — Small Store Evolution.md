@@ -1,5 +1,5 @@
 > [!example] Useful diagram
-> **Excalidraw:** [[Excalidrawings/System Design/Architecture Patterns/Incremental Architecture — Small Store Evolution.excalidraw|Incremental Architecture — Small Store Evolution Diagram]]
+> **Excalidraw:** [[Incremental Architecture — Small Store Evolution.excalidraw|Incremental Architecture — Small Store Evolution Diagram]]
 
 # Incremental Architecture — Small Store Evolution
 
