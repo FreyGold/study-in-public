@@ -3,4 +3,5 @@ Description=Commit and push the Treasury daily snapshot
 
 [Service]
 Type=oneshot
+EnvironmentFile=-%h/.config/treasury-daily-git-backup.env
 ExecStart="/home/frey/Fedora Backup/Treasury/.automation/daily-git-backup.sh"
