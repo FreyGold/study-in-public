@@ -1,4 +1,4 @@
-'# git push -u Flag Explained
+# git push -u Flag Explained
 
 `-u` is short for `--set-upstream`. It links the current local branch to the specified remote branch.
 

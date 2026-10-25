@@ -1,4 +1,4 @@
-s# Rename Local Branch master to main
+# Rename Local Branch master to main
 
 Rename the current branch locally:
 
