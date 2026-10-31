@@ -208,3 +208,55 @@ switch (sk->sk_state) {
 - [[UDP Assignment]]
 - [[OS]] / [[Go Starter]]
 - [[RFCs]]
+
+---
+> [!info] Appended on 2026-10-30 23:43
+> **Reason:** The generated content strongly matches the existing note "OS Networking (TCP, UDP) and HTTP".
+
+## Go Server Networking Concepts
+
+### HTTP Versions and Use Cases
+
+**HTTP/1.1** — Text-based over TCP, strict message format (start-line, headers, blank line, optional body). Widely deployed, simple debugging, but head-of-line blocking limits concurrency per connection.
+
+**HTTP/2** — Binary framing over TCP, multiplexes streams to avoid head-of-line blocking, header compression. Better for many small resources; still suffers from TCP head-of-line blocking at packet loss.
+
+**HTTP/3** — QUIC over UDP, eliminates TCP head-of-line blocking, built-in TLS, faster connection establishment. Best for high-latency or lossy networks; requires UDP support in infrastructure.
+
+### UDP vs TCP for Real-Time Media
+
+Video/voice chat typically uses **UDP** (via WebRTC) because:
+- Lower latency, no retransmission delays
+- Tolerates packet loss better than TCP's head-of-line blocking
+- WebRTC adds reliability, congestion control, and encryption on top of UDP
+
+**TCP** remains for signaling (session setup, ICE negotiation) and fallback when UDP is blocked.
+
+### Handling 1 Million Connections
+
+One million **simultaneous users** ≠ one million **simultaneous open connections** necessarily. Strategies:
+- **Connection pooling** and keep-alive reuse
+- **Event-driven I/O** (epoll/kqueue/IOCP) — Go's netpoller handles this
+- **Connection limits** per IP, rate limiting, graceful degradation
+- **Horizontal scaling** behind load balancer
+
+Each connection consumes file descriptors, kernel memory, and user-space buffers. Tune `ulimit`, `somaxconn`, TCP buffer sizes.
+
+### OS-Level Connection Identification
+
+1. **TCP 4-tuple** uniquely identifies a connection: `(src IP, src port, dst IP, dst port)`
+2. **Socket** — kernel data structure (`struct sock`) holds state, receive/send buffers, pointers to `tcp_sock`
+3. **File descriptor** — userspace handle returned by `accept()`; maps to socket via process fd table
+4. **Go's `net.Conn`** wraps the fd; `Read`/`Write` calls enter kernel via syscalls (`read`/`write`/`recvmsg`/`sendmsg`)
+5. **Request routing** — application reads from the same `Conn` it accepted; the OS delivers bytes in order per 4-tuple
+
+### WebRTC Media Architectures
+
+| Scenario | Media Path | Server Bandwidth |
+|----------|------------|------------------|
+| **Peer-to-peer (1:1)** | Direct via STUN/TURN; server only signals | Minimal (signaling only) |
+| **Mesh (small groups)** | Each peer sends to every other | Scales O(n²); limited to ~4-8 |
+| **SFU (Selective Forwarding Unit)** | Peers → SFU → other peers | Server forwards; O(n) bandwidth |
+| **MCU (Multipoint Control Unit)** | Peers → MCU (mixes) → peers | Server decodes/encodes; high CPU |
+
+**SFU** is standard for "instructor + many users" — server forwards streams without transcoding, consuming bandwidth proportional to total bitrate × viewers.
